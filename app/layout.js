@@ -1,7 +1,11 @@
-import { Inter } from "next/font/google";
+import { Outfit } from "next/font/google";
 import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
+import Header from "./_components/Header";
+import Footer from "./_components/Footer";
+import { Toaster } from 'sonner'
+//import { Toaster } from "@/components/ui/toaster";
+//it is layout.js which is visible to the viewers
+const outfit = Outfit({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Create Next App",
@@ -11,7 +15,15 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={outfit.className}>
+       <div className="md:px-20">
+        <Header/>
+        {children}
+        <Toaster />
+
+        </div> 
+        <Footer/>       
+      </body>
     </html>
   );
 }
